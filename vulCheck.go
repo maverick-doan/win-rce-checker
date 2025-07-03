@@ -10,7 +10,7 @@ import (
 var (
 	path    string = "C:\\Users\\Public\\exploit_success.txt"
 	content string = "Exploited"
-	cmd            = "calc.exe"
+	cmd     string = "calc.exe"
 )
 
 func main() {
@@ -30,8 +30,8 @@ func main() {
 	// Evidence command execution
 	err = procOps.ExecuteIndicatorCmd(cmd)
 	if err != nil {
-		fmt.Println("Calc failed (maybe SYSTEM?):", err)
+		fmt.Println(fmt.Sprintf("Command execution for \"%s\" failed:", cmd), err)
 	} else {
-		fmt.Println("Calc launched.")
+		fmt.Printf("Command \"%s\" executed.", cmd)
 	}
 }
